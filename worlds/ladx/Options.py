@@ -521,6 +521,26 @@ class AdditionalWarpPoints(DefaultOffToggle):
     """
     display_name = "Additional Warp Points"
 
+class QuickSwap(Choice, LADXROption):
+    """
+    Swaps the A or B button with the top inventory slot when the select button is pressed
+    Note: The map is not available when quickswap is enabled
+    [None] No quickswap
+    [A] Swap A button
+    [B] Swap B button
+    """
+    display_name = "Quickswap"
+    ladxr_name = "quickswap"
+    option_none = 0
+    option_a = 1
+    option_b = 2
+    default = option_none
+    
+    def to_ladxr_option(self, all_options):
+        if self.value == self.option_none:
+            return None, None
+        return LADXROption.to_ladxr_option(self, all_options)
+
 ladx_option_groups = [
     OptionGroup("Goal Options", [
         Goal,
@@ -600,3 +620,4 @@ class LinksAwakeningOptions(PerGameCommonOptions):
     nag_messages: NagMessages
     ap_title_screen: APTitleScreen
     boots_controls: BootsControls
+    quickswap: QuickSwap
