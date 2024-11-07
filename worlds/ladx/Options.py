@@ -200,6 +200,26 @@ class ShuffleStoneBeaks(DungeonItemShuffle):
     display_name = "Shuffle Stone Beaks"
     ladxr_item = "STONE_BEAK"
 
+class OwlStatues(Choice, LADXROption):
+    """
+    Replaces the hints from owl statues with additional randomized items
+    [Never] Owl statues are always hints
+    [Dungeon] Owl statues have items in dungeons
+    [Overworld] Owl statues have items in the overworld
+    [Both] Owl statues are always have items
+    """
+    display_name = "Owl Statues"
+    ladxr_name = "owlstatues"
+    option_never = 0
+    option_dungeon = 1
+    option_overworld = 2
+    option_both = 3
+    default = option_never
+    
+    def to_ladxr_option(self, all_options):
+        if self.value == self.option_never:
+            return None, None
+        return LADXROption.to_ladxr_option(self, all_options)
 
 class ShuffleInstruments(DungeonItemShuffle):
     """
@@ -573,6 +593,7 @@ class LinksAwakeningOptions(PerGameCommonOptions):
     shuffle_maps: ShuffleMaps
     shuffle_compasses: ShuffleCompasses
     shuffle_stone_beaks: ShuffleStoneBeaks
+    owl_statues: OwlStatues
     music: Music
     shuffle_instruments: ShuffleInstruments
     music_change_condition: MusicChangeCondition
