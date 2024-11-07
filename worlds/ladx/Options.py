@@ -561,9 +561,11 @@ ladx_option_groups = [
     OptionGroup("Miscellaneous", [
         TradeQuest,
         Rooster,
+        OwlStatues,
         TrendyGame,
         NagMessages,
-        BootsControls
+        BootsControls,
+        QuickSwap
     ]),
     OptionGroup("Experimental", [
         DungeonShuffle,
@@ -604,6 +606,7 @@ class LinksAwakeningOptions(PerGameCommonOptions):
     link_palette: LinkPalette
     warp_improvements: WarpImprovements
     additional_warp_points: AdditionalWarpPoints
+    owl_statues: OwlStatues
     trendy_game: TrendyGame
     gfxmod: GfxMod
     palette: Palette
@@ -613,7 +616,6 @@ class LinksAwakeningOptions(PerGameCommonOptions):
     shuffle_maps: ShuffleMaps
     shuffle_compasses: ShuffleCompasses
     shuffle_stone_beaks: ShuffleStoneBeaks
-    owl_statues: OwlStatues
     music: Music
     shuffle_instruments: ShuffleInstruments
     music_change_condition: MusicChangeCondition
