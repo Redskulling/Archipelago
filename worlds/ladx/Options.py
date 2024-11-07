@@ -26,7 +26,8 @@ class Logic(Choice, LADXROption):
     [Normal] Playable without using any tricks or glitches. Can require knowledge from a vanilla playthrough, such as how to open Color Dungeon.
     [Hard] More advanced techniques may be required, but glitches are not. Examples include tricky jumps, killing enemies with only pots.
     [Glitched] Advanced glitches and techniques may be required, but extremely difficult or tedious tricks are not required. Examples include Bomb Triggers, Super Jumps and Jesus Jumps.
-    [Hell] Obscure knowledge and hard techniques may be required. Examples include featherless jumping with boots and/or hookshot, sequential pit buffers and unclipped superjumps. Things in here can be extremely hard to do or very time consuming."""
+    [Hell] Obscure knowledge and hard techniques may be required. Examples include featherless jumping with boots and/or hookshot, sequential pit buffers and unclipped superjumps. Things in here can be extremely hard to do or very time consuming.
+    """
     display_name = "Logic"
     ladxr_name = "logic"
     # option_casual = 0
@@ -57,7 +58,7 @@ class TextShuffle(DefaultOffToggle):
 
 class Rooster(DefaultOnToggle, LADXROption):
     """
-    [On] Adds the rooster to the item pool. 
+    [On] Adds the rooster to the item pool.
     [Off] The rooster spot is still a check giving an item. But you will never find the rooster. Any rooster spot is accessible without rooster by other means.
     """
     display_name = "Rooster"
@@ -70,7 +71,7 @@ class Boomerang(Choice):
     [Gift] The boomerang salesman will give you a random item, and the boomerang is shuffled.
     """
     display_name = "Boomerang"
-    
+
     normal = 0
     gift = 1
     default = gift
@@ -82,8 +83,8 @@ class EntranceShuffle(Choice, LADXROption):
     Randomizes where overworld entrances lead to.
     [Simple] Single-entrance caves/houses that have items are shuffled amongst each other.
     If random start location and/or dungeon shuffle is enabled, then these will be shuffled with all the non-connector entrance pool.
-    Note, some entrances can lead into water, use the warp-to-home from the save&quit menu to escape this."""
-
+    Note, some entrances can lead into water, use the warp-to-home from the save&quit menu to escape this.
+    """
     # [Advanced] Simple, but two-way connector caves are shuffled in their own pool as well.
     # [Expert] Advanced, but caves/houses without items are also shuffled into the Simple entrance pool.
     # [Insanity] Expert, but the Raft Minigame hut and Mamu's cave are added to the non-connector pool.
@@ -156,7 +157,7 @@ class ShuffleSmallKeys(DungeonItemShuffle):
     [Own Dungeons] The item will be within a dungeon in your world
     [Own World] The item will be somewhere in your world
     [Any World] The item could be anywhere
-    [Different World] The item will be somewhere in another world 
+    [Different World] The item will be somewhere in another world
     """
     display_name = "Shuffle Small Keys"
     ladxr_item = "KEY"
@@ -215,7 +216,7 @@ class OwlStatues(Choice, LADXROption):
     option_overworld = 2
     option_both = 3
     default = option_never
-    
+
     def to_ladxr_option(self, all_options):
         if self.value == self.option_never:
             return None, None
@@ -243,7 +244,7 @@ class Goal(Choice, LADXROption):
     The Goal of the game
     [Instruments] The Wind Fish's Egg will only open if you have the required number of Instruments of the Sirens, and play the Ballad of the Wind Fish.
     [Seashells] The Egg will open when you bring 20 seashells. The Ballad and Ocarina are not needed.
-    [Open] The Egg will start pre-opened.  
+    [Open] The Egg will start pre-opened.
     """
     display_name = "Goal"
     ladxr_name = "goal"
@@ -311,7 +312,8 @@ class MusicChangeCondition(Choice):
 # [Always] you can always steal from the shop
 # [Never] you can never steal from the shop."""),
 class Bowwow(Choice):
-    """Allows BowWow to be taken into any area.  Certain enemies and bosses are given a new weakness to BowWow.
+    """
+    Allows BowWow to be taken into any area.  Certain enemies and bosses are given a new weakness to BowWow.
     [Normal] BowWow is in the item pool, but can be logically expected as a damage source.
     [Swordless] The progressive swords are removed from the item pool.
     """
@@ -467,7 +469,7 @@ class GfxMod(FreeText, LADXROption):
 
 class Palette(Choice):
     """
-    Sets the palette for the game. 
+    Sets the palette for the game.
     Note: A few places aren't patched, such as the menu and a few color dungeon tiles.
     [Normal] The vanilla palette
     [1-Bit] One bit of color per channel
@@ -521,6 +523,7 @@ class AdditionalWarpPoints(DefaultOffToggle):
     """
     display_name = "Additional Warp Points"
 
+
 class QuickSwap(Choice, LADXROption):
     """
     Swaps the A or B button with the top inventory slot when the select button is pressed
@@ -535,11 +538,12 @@ class QuickSwap(Choice, LADXROption):
     option_a = 1
     option_b = 2
     default = option_none
-    
+
     def to_ladxr_option(self, all_options):
         if self.value == self.option_none:
             return None, None
         return LADXROption.to_ladxr_option(self, all_options)
+
 
 ladx_option_groups = [
     OptionGroup("Goal Options", [
@@ -581,6 +585,7 @@ ladx_option_groups = [
         MusicChangeCondition
     ])
 ]
+
 
 @dataclass
 class LinksAwakeningOptions(PerGameCommonOptions):
